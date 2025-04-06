@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fixed Horizontal Menu</title>
+  <title>Responsive Horizontal Menu</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -27,10 +27,11 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     nav ul li {
-      margin: 0 1rem;
+      margin: 0.5rem;
     }
 
     nav ul li a {
@@ -46,6 +47,21 @@
       background-color: #0056b3;
       border-radius: 5px;
     }
+
+    /* Adjust font size for small screens */
+    @media (max-width: 600px) {
+      nav ul li a {
+        font-size: 0.9rem; /* Decrease font size for smaller screens */
+      }
+    }
+
+    /* Adjust font size and padding for even smaller screens */
+    @media (max-width: 400px) {
+      nav ul li a {
+        font-size: 0.8rem; /* Further decrease font size for very small screens */
+        padding: 0.4rem 0.8rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -53,9 +69,8 @@
   <nav>
     <ul>
       <li><a href="https://occultedge.github.io/onlnschlstaustns/" target="_blank">K-12 Courses</a></li>
-      
       <li><a href="https://www.occultedge.com/list-of-courses-apply-now" target="_blank">Certificate and Diploma Courses</a></li>
-      <li><a href="https://occultedge.github.io/occultusa/" target="_blank">Online Degree Courses </a></li>
+      <li><a href="https://occultedge.github.io/occultusa/" target="_blank">Online Degree Courses</a></li>
       <li><a href="https://www.occultedge.com/apply-now-for-franchise" target="_blank">Partner with Us</a></li>
     </ul>
   </nav>
