@@ -3,41 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notification</title>
+    <title>Instant Scrolling Notification</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            /* Light background */
         }
 
         .notification-container {
             position: fixed;
             top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
             width: 100%;
-            color: black;
-            padding: 10px;
-            text-align: center;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 5px;
+            padding: 10px 0;
+            overflow: hidden;
             z-index: 1000;
+            background-color: #fff;
+        }
+
+        .scrolling-content {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll-left 50s linear infinite;
+            color: red; /* Red scrolling text */
+            font-weight: bold;
             white-space: nowrap;
-            animation: scroll 40s linear infinite; /* Slower scrolling */
         }
 
         .blink {
-            color: #ff0000; /* Red color for "NEW" */
+            color: red;
             animation: blink 1s step-end infinite;
         }
 
         .link {
             font-size: 14px;
             text-decoration: none;
-            color: #FFC107; /* yellow color for the link */
+            color: red;
             margin: 0 20px;
         }
 
@@ -45,33 +47,42 @@
             text-decoration: underline;
         }
 
-        @keyframes scroll {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
+        @keyframes scroll-left {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
         }
 
         @keyframes blink {
-            0% { opacity: 1; }
+            0%, 100% { opacity: 1; }
             50% { opacity: 0; }
-            100% { opacity: 1; }
         }
 
-        .scrolling-content {
-            display: inline-block;
-            animation: scroll 300s linear infinite; /* Slower scrolling animation */
+        /* Responsive font sizes */
+        @media (max-width: 600px) {
+            .scrolling-content, .link {
+                font-size: 12px;
+            }
+        }
+        @media (max-width: 400px) {
+            .scrolling-content, .link {
+                font-size: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="notification-container">
         <div class="scrolling-content">
-            <a class="link" target="_blank">
-                <span class="blink">NEW</span>  Manipal University Online (India) offers MCA in Computer Science and Engineering, Master of Business Administration (MBA), PG Diploma in Data Science, and Certificate Course in Digital Marketing. SVGU University (India) offers Bachelor of Science in Information Technology (B.Sc. IT), Master of Science in Physics (M.Sc. Physics), MBA, and PG Diploma in Human Resource Management (HRM). Chandigarh University (India) offers Bachelor of Business Administration (BBA), MBA, Post Graduate Diploma in Banking and Finance (PGDBF), and Diploma in Creative Writing in English. Jain University Online (India) offers Bachelor of Arts (BA) in English, MBA, Executive MBA, and Post Graduate Diploma in Business Analytics. IGNOU (Indira Gandhi National Open University) offers Bachelor of Commerce (B.Com), MCA, Post Graduate Diploma in Rural Development (PGDRD), and Certificate in Environmental Studies (CES). Jain University, Bangalore (NAAC A++) offers MBA - Banking & Finance, BBA - HRM, BBA - Finance, BBA - Marketing, BBA - Engineering and Project Management, B.Com - International Finance & Accounting, B.Com - Accounting & Finance, B.Com - Corporate Accounting. Chandigarh University, Punjab offers M.Com - International Finance, MBA - Human Resource Management, MBA - Finance, MBA - Marketing, MBA - General Management, MBA - Systems & Operations Management, MBA - International Business Management, MBA - Finance & Marketing, MBA - HRM & Finance. D.Y. Patil University, Nerul, Mumbai offers MBA - Marketing & HRM, MBA - Project Management, MBA - IT Management, MBA - Healthcare Management, MBA - Entrepreneurship & Leadership, MBA - Logistics & Supply Chain Management, MBA - Business Intelligence & Analytics, MBA - International Finance, MCA - Computer Science & IT, MCA - Data Analytics, MCA - Cyber Security. KIIT University, Bhubaneswar, Odisha offers MA - English, Economics, Public Policy, BBA - Business Analytics, MBA - Business Analytics, MBA - Electives in HR, Finance, Marketing, IT, Retail Mgmt. Dr. MGR University, Chennai, Tamil Nadu offers MCA - Electives in Cloud Computing, Full Stack Development, AI & ML, Data Analytics, M.Sc. in Mathematics, M.Sc. in Data Science, MBA X, MBA Plus. Andhra University, Visakhapatnam, Andhra Pradesh offers MBA - Finance & Marketing, BCA, BA - Combination of Subjects in Economics, English, Political Science, Public Policy, Psychology. Kurukshetra University, Haryana offers BBA - Digital Marketing, Retail Management, Fintech, BCA - UX, Data Science, Cloud Technology, Blockchain, AI, MBA - Data Science. OP Jindal Global University, Sonipat, Haryana offers MBA - Finance, HRM, Marketing, Healthcare, Agribusiness, IT, International Business, Operations Management. Vivekananda Global University, Jaipur, Rajasthan offers MBA - Healthcare and Hospital Management, MBA - Digital Marketing, Entrepreneurship, Logistics & Supply Chain Management, MCA - Artificial Intelligence, Data Science. Bharatidasan University, Tiruchirapalli, Tamil Nadu offers MBA - HRM, Finance, Marketing, BBA - General, MSc in Mathematics. Centurion University, Gajapati, Odisha offers MCA - Data Science, MBA - Business Analytics, MBA - Healthcare and Hospital Management. Koneru Lakshmaiah Education Foundation, Andhra Pradesh offers BBA - Animation and VFX Management, BCA - Gaming and Development. Vignan University, Guntur, Andhra Pradesh offers a variety of courses
-            </a>
+            <span class="blink">NEW</span> Earn cost effective Online Degrees from Internationally recognised and accliamed Indian Universities
+            Manipal University (India) offers MCA, MBA, PG Diploma in Data Science, and Digital Marketing. 
+            SVGU University offers B.Sc. IT, M.Sc. Physics, MBA, PG Diploma in HRM. 
+            Chandigarh University offers BBA, MBA, PGDBF, Creative Writing. 
+            Jain University offers BA, MBA, Executive MBA, Business Analytics. 
+            IGNOU offers B.Com, MCA, PGDRD, Environmental Studies. 
+            D.Y. Patil University offers MBA (Marketing, HRM, IT, Healthcare), MCA. 
+            KIIT University offers MA, BBA, MBA (Business Analytics). 
+            Andhra University offers MBA, BCA, BA. 
+            Kurukshetra University offers BBA, MBA (Data Science). 
             
             <a href="#" class="link" target="_blank">
                 <span class="blink">NEW</span> Click here to attend the live online lecture on Skype.
